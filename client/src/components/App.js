@@ -1,33 +1,21 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
-
-const PageOne = () => {
-  return (
-    <div>
-      PageOne
-      <Link to="/pagetwo">Navigate to Page Two</Link>
-    </div>
-  );
-};
-
-const PageTwo = () => {
-  return (
-    <div>
-      PageTwo
-      <button>Click Me!</button>
-      <Link to="/">Navigate to Page One</Link>
-    </div>
-  );
-};
+import { Routes, Route } from 'react-router-dom';
+import CreateStream from '../components/streams/CreateStream';
+import DeleteStream from '../components/streams/DeleteStream';
+import UpdateStream from '../components/streams/UpdateStream';
+import ShowStream from '../components/streams/ShowStream';
+import Navbar from './Navbar';
 
 const App = () => {
   return (
-    <div>
+    <div className="ui container">
       <Routes>
-        <Route path="/" element={<PageOne />} />
-        <Route path="/pagetwo" element={<PageTwo />} />
+        <Navbar />
+        <Route path="/" element={<CreateStream />} />
+        <Route path="/new" element={<DeleteStream />} />
+        <Route path="/show" element={<ShowStream />} />
+        <Route path="/update" element={<UpdateStream />} />
       </Routes>
-      ;
     </div>
   );
 };
