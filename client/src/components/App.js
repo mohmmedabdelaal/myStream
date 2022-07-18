@@ -1,5 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import StreamList from '../components/streams/StreamList';
 import CreateStream from '../components/streams/CreateStream';
 import DeleteStream from '../components/streams/DeleteStream';
 import UpdateStream from '../components/streams/UpdateStream';
@@ -9,12 +10,13 @@ import Navbar from './Navbar';
 const App = () => {
   return (
     <div className="ui container">
+      <Navbar />
       <Routes>
-        <Navbar />
-        <Route path="/" element={<CreateStream />} />
-        <Route path="/new" element={<DeleteStream />} />
-        <Route path="/show" element={<ShowStream />} />
-        <Route path="/update" element={<UpdateStream />} />
+        <Route path="/" element={<StreamList />} />
+        <Route path="/streams/new" element={<CreateStream />} />
+        <Route path="/streams/show" element={<ShowStream />} />
+        <Route path="/streams/delete/:id" element={<DeleteStream />} />
+        <Route path="/streams/update/:id" element={<UpdateStream />} />
       </Routes>
     </div>
   );
