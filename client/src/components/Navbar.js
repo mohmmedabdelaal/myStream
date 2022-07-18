@@ -1,19 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import classes from './Navbar.module.css';
 
 function Navbar() {
   return (
-    <div className="ui secondary pointing menu">
-      <a href="/streams/new">newpage</a>
-      <Link to="/" className="item">
-        Streamy
-      </Link>
-      <div className="right menu">
-        <Link to="/" className="item">
-          All Streams
-        </Link>
-      </div>
-    </div>
+    <header className={classes.header}>
+      <div className={classes.logo}>MyStream</div>
+      <nav className={classes.nav}>
+        <ul>
+          <li>
+            <NavLink to="/" activeClassName={classes.actives}>
+              Stream List
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/streams/new" activeClassName={classes.active}>
+              Create Stream
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 }
 

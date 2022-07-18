@@ -1,7 +1,11 @@
 import React from 'react';
 
 function CreateStream() {
-  return <div>CreateStream</div>;
+  return (
+    <section className="ui container">
+      <div className="section-center">Create</div>
+    </section>
+  );
 }
 
 export default CreateStream;

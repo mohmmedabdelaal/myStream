@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 
 const App = () => {
   return (
-    <div className="ui container">
+    <section>
       <Navbar />
       <Routes>
         <Route path="/" element={<StreamList />} />
@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/streams/delete/:id" element={<DeleteStream />} />
         <Route path="/streams/update/:id" element={<UpdateStream />} />
       </Routes>
-    </div>
+    </section>
   );
 };
 
