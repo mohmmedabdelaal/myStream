@@ -1,24 +1,43 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './Navbar.module.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function Navbar() {
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   return (
     <header className={classes.header}>
       <div className={classes.logo}>MyStream</div>
       <nav className={classes.nav}>
         <ul>
           <li>
-            <NavLink to="/" activeClassName={classes.actives}>
+            <NavLink to="/" activeclassname={classes.actives}>
               Stream List
             </NavLink>
           </li>
 
           <li>
-            <NavLink to="/streams/new" activeClassName={classes.active}>
+            <NavLink to="/streams/new" activeclassname={classes.active}>
               Create Stream
             </NavLink>
           </li>
+          {!isAuthenticated && (
+            <li>
+              <button className="btn" onClick={() => loginWithRedirect()}>
+                Login
+              </button>
+            </li>
+          )}
+          {isAuthenticated && (
+            <li>
+              <button
+                className="btn"
+                onClick={() => logout({ returnTo: window.location.origin })}
+              >
+                Logout
+              </button>
+            </li>
+          )}
         </ul>
       </nav>
     </header>

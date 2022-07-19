@@ -5,12 +5,13 @@
   padding: 0 10%;
   justify-content: space-around;
   align-items: center;
-  background-color: dodgerblue;
+  background-color: #3330e4;
 }
 
 .logo {
+  margin-left: -1rem;
   font-size: 2rem;
-  color: white;
+  color: #f637ec;
 }
 
 .nav ul {
@@ -33,5 +34,5 @@
 .nav a:hover,
 .nav a:active,
 .nav a.active {
-  color: #e6fcfc;
+  color: #f637ec;
 }
