@@ -24,6 +24,7 @@ function Navbar() {
           {!isAuthenticated && (
             <li>
               <button className="btn" onClick={() => loginWithRedirect()}>
+                <i className="google icon"></i>
                 Login
               </button>
             </li>
@@ -34,6 +35,7 @@ function Navbar() {
                 className="btn"
                 onClick={() => logout({ returnTo: window.location.origin })}
               >
+                <i className="google icon"></i>
                 Logout
               </button>
             </li>
