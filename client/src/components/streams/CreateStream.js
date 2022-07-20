@@ -1,9 +1,8 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-function CreateStream() {
+function CreateStream(props) {
   const renderForm = ({ input, label }) => {
-    console.log(input);
     return (
       <div className="field">
         <label>{label}</label>
@@ -11,16 +10,23 @@ function CreateStream() {
       </div>
     );
   };
+
+  const onSubmit = (formValue) => {
+    console.log(formValue);
+  };
   return (
     <section className="ui container">
       <div className="section-center">
-        <form className="ui form">
+        <form onSubmit={props.handleSubmit(onSubmit)} className="ui form">
           <Field name="title" component={renderForm} label="Enter title" />
           <Field
             name="description"
             component={renderForm}
             label="Enter description"
           />
+          <button className="ui primary button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
     </section>
