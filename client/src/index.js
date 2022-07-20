@@ -4,11 +4,12 @@ import './index.css';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(reducers);
+const store = createStore(reducers, composeWithDevTools(applyMiddleware()));
 
 ReactDOM.render(
   <Auth0Provider
