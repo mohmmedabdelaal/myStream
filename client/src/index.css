@@ -146,3 +146,9 @@ p {
   cursor: pointer;
   font-size: 1rem;
 }
+
+.authWrapper {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}

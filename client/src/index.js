@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
 import { Auth0Provider } from '@auth0/auth0-react';
+
+const store = createStore(reducers);
 
 ReactDOM.render(
   <Auth0Provider
@@ -12,9 +17,11 @@ ReactDOM.render(
     redirectUri={window.location.origin}
     cacheLocation="localstorage"
   >
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </Auth0Provider>,
   document.querySelector('#root')
 );
