@@ -1,7 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
 
 function UpdateStream() {
   return <div>UpdateStream</div>;
 }
 
-export default UpdateStream;
+const mapStateToProps = (state) => {
+  return {
+    state,
+  };
+};
+
+export default connect(mapStateToProps, {})(UpdateStream);
