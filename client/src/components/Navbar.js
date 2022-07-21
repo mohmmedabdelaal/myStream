@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import classes from './Navbar.module.css';
 import { useAuth0 } from '@auth0/auth0-react';
 
@@ -7,7 +7,9 @@ function Navbar() {
   const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   return (
     <header className={classes.header}>
-      <div className={classes.logo}>MyStream</div>
+      <Link to="/">
+        <div className={classes.logo}>MyStream</div>
+      </Link>
       <nav className={classes.nav}>
         <ul>
           <li>

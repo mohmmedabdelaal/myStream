@@ -16,6 +16,16 @@ export const createStream = (fromValue) => async (dispatch) => {
   dispatch({ type: CREATE_STREAM, payload: response.date });
 };
 
+const fetchStreams = (fromValue) => async (dispatch) => {
+  const response = await streams.get('/streams', fromValue);
+  dispatch({ type: FETCH_STREAMS, payload: response.data });
+};
+
+const fetchStream = (id) => async (dispatch) => {
+  const response = await streams.get(`/streams/${id}`);
+  dispatch({ type: FETCH_STREAM, payload: response.data });
+};
+
 export const updateStream = (id, fromValue) => async (dispatch) => {
   const response = await streams.put(`/streams/${id}`, fromValue);
   dispatch({ type: EDIT_STREAM, payload: response.data });
