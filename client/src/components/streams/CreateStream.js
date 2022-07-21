@@ -1,7 +1,10 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createStream } from '../../actions';
 
 function CreateStream(props) {
+  console.log(props);
   const renderError = ({ touched, error }) => {
     if (touched && error) {
       return (
@@ -25,7 +28,7 @@ function CreateStream(props) {
   };
 
   const onSubmit = (formValue) => {
-    console.log(formValue);
+    props.createStream(formValue);
   };
   return (
     <section className="ui container">
@@ -57,4 +60,10 @@ const validate = (formValue) => {
   return errors;
 };
 
-export default reduxForm({ form: 'createStream', validate })(CreateStream);
+// const mapToStateProps = (state) => {
+//   return {};
+// };
+
+const formWrapped = reduxForm({ form: 'createStream', validate })(CreateStream);
+
+export default connect(null, { createStream })(formWrapped);
