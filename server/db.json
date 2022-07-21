@@ -4,6 +4,11 @@
       "title": "first stream",
       "description": "coding",
       "id": 1
+    },
+    {
+      "title": "the rest is better",
+      "description": "gaming",
+      "id": 2
     }
   ]
 }
