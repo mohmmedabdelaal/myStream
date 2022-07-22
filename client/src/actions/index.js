@@ -9,19 +9,23 @@ import {
   FETCH_STREAMS,
 } from './types';
 import {} from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 /// STREAMS FUNCTIONS
-export const createStream = (fromValue) => async (dispatch) => {
-  const response = streams.post('/streams', fromValue);
+export const createStream = (fromValue, sub) => async (dispatch) => {
+  // const { user } = useAuth0();
+  // const { sub } = user;
+  console.log(sub);
+  const response = await streams.post('/streams', { ...fromValue });
   dispatch({ type: CREATE_STREAM, payload: response.date });
 };
 
-const fetchStreams = (fromValue) => async (dispatch) => {
+export const fetchStreams = (fromValue) => async (dispatch) => {
   const response = await streams.get('/streams', fromValue);
   dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
 
-const fetchStream = (id) => async (dispatch) => {
+export const fetchStream = (id) => async (dispatch) => {
   const response = await streams.get(`/streams/${id}`);
   dispatch({ type: FETCH_STREAM, payload: response.data });
 };

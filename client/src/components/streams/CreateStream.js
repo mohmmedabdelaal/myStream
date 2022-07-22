@@ -2,9 +2,13 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function CreateStream(props) {
-  console.log(props);
+  const user = useAuth0().user;
+
+  // const sub = user.sub || '';
+  console.log(user);
   const renderError = ({ touched, error }) => {
     if (touched && error) {
       return (
@@ -33,6 +37,7 @@ function CreateStream(props) {
   return (
     <section className="ui container">
       <div className="section-center">
+        <h4>Crate stream</h4>
         <form onSubmit={props.handleSubmit(onSubmit)} className="ui form error">
           <Field name="title" component={renderForm} label="Enter title" />
           <Field
