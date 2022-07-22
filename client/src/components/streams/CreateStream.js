@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function CreateStream(props) {
-  const user = useAuth0().user;
+  const { user } = useAuth0();
+  // const [myUser, setMyUser] = useState('');
+  const x = typeof user === 'undefined' ? 'default' : user.sub;
+  // setMyUser(theUser);
 
-  // const sub = user.sub || '';
-  console.log(user);
+  // setMyUser(user);
+
+  // console.log(x);
+
   const renderError = ({ touched, error }) => {
     if (touched && error) {
       return (
@@ -32,7 +37,7 @@ function CreateStream(props) {
   };
 
   const onSubmit = (formValue) => {
-    props.createStream(formValue);
+    props.createStream(formValue, x);
   };
   return (
     <section className="ui container">

@@ -6,10 +6,10 @@ function UpdateStream() {
   return <div>UpdateStream</div>;
 }
 
-const mapStateToProps = (state) => {
-  return {
-    state,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     state,
+//   };
+// };
 
-export default connect(mapStateToProps, {})(UpdateStream);
+export default UpdateStream;

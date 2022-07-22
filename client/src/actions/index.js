@@ -9,14 +9,11 @@ import {
   FETCH_STREAMS,
 } from './types';
 import {} from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 
 /// STREAMS FUNCTIONS
-export const createStream = (fromValue, sub) => async (dispatch) => {
-  // const { user } = useAuth0();
-  // const { sub } = user;
-  console.log(sub);
-  const response = await streams.post('/streams', { ...fromValue });
+export const createStream = (formValue, x) => async (dispatch) => {
+  console.log(x);
+  const response = await streams.post('/streams', { ...formValue, x });
   dispatch({ type: CREATE_STREAM, payload: response.date });
 };
 
@@ -25,20 +22,20 @@ export const fetchStreams = (fromValue) => async (dispatch) => {
   dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
 
-export const fetchStream = (id) => async (dispatch) => {
-  const response = await streams.get(`/streams/${id}`);
-  dispatch({ type: FETCH_STREAM, payload: response.data });
-};
+// export const fetchStream = (id) => async (dispatch) => {
+//   const response = await streams.get(`/streams/${id}`);
+//   dispatch({ type: FETCH_STREAM, payload: response.data });
+// };
 
-export const updateStream = (id, fromValue) => async (dispatch) => {
-  const response = await streams.put(`/streams/${id}`, fromValue);
-  dispatch({ type: EDIT_STREAM, payload: response.data });
-};
+// export const updateStream = (fromValue,id) => async (dispatch) => {
+//   const response = await streams.put(`/streams/${id}`, fromValue);
+//   dispatch({ type: EDIT_STREAM, payload: response.data });
+// };
 
-export const deleteStream = (id) => async (dispatch) => {
-  await streams.delete(`/streams/${id}`);
-  dispatch({ type: DELETE_STREAM, payload: id });
-};
+// export const deleteStream = (id) => async (dispatch) => {
+//   await streams.delete(`/streams/${id}`);
+//   dispatch({ type: DELETE_STREAM, payload: id });
+// };
 
 /// AUTH FUNCTIONS
 export const SignIn = () => {
