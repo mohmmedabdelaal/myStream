@@ -14,7 +14,7 @@ import {
 export const createStream = (formValue, userId) => async (dispatch) => {
   const response = await streams.post('/streams', { ...formValue, userId });
   dispatch({ type: CREATE_STREAM, payload: response.date });
-  history('/');
+  history.push('/');
 };
 
 export const fetchStreams = () => async (dispatch) => {
