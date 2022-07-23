@@ -123,14 +123,25 @@ p {
 
 /* section */
 .section {
+  padding: 5rem 0;
+}
+.section-center {
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
 }
 
 @media screen and (min-width: 992px) {
-  .section {
+  .section-center {
     width: 95vw;
+  }
+}
+.text-center {
+  text-align: center;
+}
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
   }
 }
 .btn {
@@ -151,4 +162,16 @@ p {
   height: 100vh;
   display: grid;
   place-items: center;
+}
+
+.title {
+  text-align: center;
+}
+.title .underline {
+  width: 6rem;
+  height: 0.25rem;
+  background: #49a6e9;
+  background: var(--clr-primary-5);
+  margin-left: auto;
+  margin-right: auto;
 }
