@@ -41,8 +41,11 @@ function CreateStream(props) {
   };
   return (
     <section className="ui container">
+      <div className="title">
+        <h2>Create streams</h2>
+        <div className="underline"></div>
+      </div>
       <div className="section-center">
-        <h4>Crate stream</h4>
         <form onSubmit={props.handleSubmit(onSubmit)} className="ui form error">
           <Field name="title" component={renderForm} label="Enter title" />
           <Field

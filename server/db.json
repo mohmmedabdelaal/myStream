@@ -6,20 +6,16 @@
       "id": 1
     },
     {
-      "title": "the rest is better",
-      "description": "gaming",
+      "title": "gust create stream with userId",
+      "description": "football",
+      "userId": "google-oauth2|106412140122217990210",
       "id": 2
     },
     {
-      "title": "ffff",
-      "description": "www",
+      "title": "Fifa 22",
+      "description": "gaming",
+      "userId": "google-oauth2|116356641538491391893",
       "id": 3
-    },
-    {
-      "title": "the perfect code to alpha",
-      "description": "motivation",
-      "x": "google-oauth2|106412140122217990210",
-      "id": 4
     }
   ]
 }
