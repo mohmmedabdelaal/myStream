@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 
 function StreamList({ fetchStreams, streams }) {
-  const { user } = useAuth0();
+  const { user, isAuthenticated } = useAuth0();
   const x = typeof user === 'undefined' ? 'default' : user.sub;
 
   console.log(streams);
@@ -14,13 +14,7 @@ function StreamList({ fetchStreams, streams }) {
     fetchStreams();
     // eslint-disable-next-line
   }, []);
-  console.log(fetchStreams);
-  const userBtn = (
-    <div style={{ float: 'right' }}>
-      <button className="del-btn">Delete</button>
-      <button className="edit-btn">Edit</button>
-    </div>
-  );
+
   return (
     <section className="section">
       <div className="title">
@@ -32,7 +26,17 @@ function StreamList({ fetchStreams, streams }) {
           const { title, description, id, userId } = stream;
           return (
             <Card key={id}>
-              {x === userId ? userBtn : null}
+              {x === userId ? (
+                <div style={{ float: 'right' }}>
+                  <Link to={`/streams/update/${id}`} className="edit-btn">
+                    <i className="ui icon edit"></i>
+                    Edit
+                  </Link>
+                  <button className="del-btn">
+                    <i className="ui icon trash"></i> Delete
+                  </button>
+                </div>
+              ) : null}
               <i className="large middle aligned icon camera" />
               <div className="content">
                 <h3>{title}</h3>

@@ -12,15 +12,16 @@ function Navbar() {
       </Link>
       <nav className={classes.nav}>
         <ul>
+          {isAuthenticated && (
+            <li>
+              <NavLink to="/streams/new" activeclassname={classes.actives}>
+                create stream
+              </NavLink>
+            </li>
+          )}
           <li>
-            <NavLink to="/" activeclassname={classes.actives}>
-              Stream List
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink to="/streams/new" activeclassname={classes.active}>
-              Create Stream
+            <NavLink to="/" activeclassname={classes.active}>
+              Stream list
             </NavLink>
           </li>
           {!isAuthenticated && (
