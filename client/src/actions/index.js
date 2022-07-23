@@ -1,4 +1,5 @@
 import streams from '../apis';
+import history from '../components/history';
 import {
   SIGN_IN,
   SING_OUT,
@@ -8,16 +9,16 @@ import {
   FETCH_STREAM,
   FETCH_STREAMS,
 } from './types';
-import {} from 'react-router-dom';
 
 /// STREAMS FUNCTIONS
 export const createStream = (formValue, userId) => async (dispatch) => {
   const response = await streams.post('/streams', { ...formValue, userId });
   dispatch({ type: CREATE_STREAM, payload: response.date });
+  history('/');
 };
 
-export const fetchStreams = (fromValue) => async (dispatch) => {
-  const response = await streams.get('/streams', fromValue);
+export const fetchStreams = () => async (dispatch) => {
+  const response = await streams.get('/streams');
   dispatch({ type: FETCH_STREAMS, payload: response.data });
 };
 
@@ -26,8 +27,8 @@ export const fetchStream = (id) => async (dispatch) => {
   dispatch({ type: FETCH_STREAM, payload: response.data });
 };
 
-export const updateStream = (fromValue, id) => async (dispatch) => {
-  const response = await streams.put(`/streams/${id}`, fromValue);
+export const updateStream = (id, formValues) => async (dispatch) => {
+  const response = await streams.patch(`/streams/${id}`, formValues);
   dispatch({ type: EDIT_STREAM, payload: response.data });
 };
 

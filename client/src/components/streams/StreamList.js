@@ -6,7 +6,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 
 function StreamList({ fetchStreams, streams }) {
-  const { user, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const x = typeof user === 'undefined' ? 'default' : user.sub;
 
   console.log(streams);

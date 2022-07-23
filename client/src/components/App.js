@@ -1,5 +1,6 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
+import history from './history';
 import StreamList from '../components/streams/StreamList';
 import CreateStream from '../components/streams/CreateStream';
 import DeleteStream from '../components/streams/DeleteStream';
@@ -11,7 +12,7 @@ const App = () => {
   return (
     <section>
       <Navbar />
-      <Routes>
+      <Routes history={history}>
         <Route path="/" element={<StreamList />} />
         <Route path="/streams/new" element={<CreateStream />} />
         <Route path="/streams/show" element={<ShowStream />} />
