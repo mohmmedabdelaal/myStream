@@ -1,11 +1,6 @@
 {
   "streams": [
     {
-      "title": "first stream",
-      "description": "coding",
-      "id": 1
-    },
-    {
       "title": "gust create stream with userId",
       "description": "football",
       "userId": "google-oauth2|106412140122217990210",
@@ -16,36 +11,6 @@
       "description": "gaming",
       "userId": "google-oauth2|116356641538491391893",
       "id": 3
-    },
-    {
-      "title": "w",
-      "description": "w",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 4
-    },
-    {
-      "title": "wwwww",
-      "description": "fffff",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 5
-    },
-    {
-      "title": "ffffffffffffffffffffffffffffffffffffffff",
-      "description": "wwwwwwwwwwwwwwwwwww",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 6
-    },
-    {
-      "title": "1111111111111",
-      "description": "2222222222222222222",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 7
-    },
-    {
-      "title": "fad",
-      "description": "this is try",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 8
     }
   ]
 }

@@ -8,7 +8,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import reduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import { Auth0Provider } from '@auth0/auth0-react';
-import { composeWithDevTools } from 'redux-devtools-extension';
+import history from './history';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -23,7 +23,7 @@ ReactDOM.render(
     cacheLocation="localstorage"
   >
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <App />
       </BrowserRouter>
     </Provider>

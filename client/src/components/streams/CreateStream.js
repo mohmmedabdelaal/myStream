@@ -1,13 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions';
-import { useAuth0 } from '@auth0/auth0-react';
 import FormValues from './FormValues';
+import { useAuth0 } from '@auth0/auth0-react';
 
 function CreateStream(props) {
   const { user } = useAuth0();
   const userId = typeof user === 'undefined' ? 'default' : user.sub;
-
   const onSubmit = (formValues) => {
     props.createStream(formValues, userId);
   };

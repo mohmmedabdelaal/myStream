@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { useParams } from 'react-router-dom';
+
 import { fetchStream, updateStream } from '../../actions';
 
+let myId;
+
 function UpdateStream(props) {
-  console.log(props);
+  const { id } = useParams();
+  console.log(id);
+  myId = id;
   useEffect(() => {
     fetchStream();
   }, []);
@@ -21,12 +27,14 @@ function UpdateStream(props) {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps);
+  console.log(myId);
   return {
-    stream: state.streams,
+    stream: state.streams[myId],
   };
 };
 
 export default connect(mapStateToProps, { fetchStream, updateStream })(
   UpdateStream
 );
+
+// export default UpdateStream;
