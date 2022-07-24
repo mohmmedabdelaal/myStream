@@ -2,9 +2,10 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useParams, useLocation } from 'react-router-dom';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import FormValues from './FormValues';
 import { fetchStream, updateStream } from '../../actions';
 
-function UpdateStream({ stream }) {
+function UpdateStream({ stream, updateStream }) {
   const { id } = useParams();
 
   const location = useLocation();
@@ -13,10 +14,13 @@ function UpdateStream({ stream }) {
     fetchStream(id);
   }, [id]);
 
+  const onSubmit = (formValue) => {
+    updateStream(id, formValue);
+  };
   if (!stream) {
     return <LoadingSpinner />;
   }
-  console.log(stream);
+
   return (
     <section>
       <div className="section-center">
@@ -24,7 +28,7 @@ function UpdateStream({ stream }) {
           <h2>Edit Stream</h2>
           <div className="underline"></div>
         </div>
-        <h1>{stream.title}</h1>
+        <FormValues onSubmit={onSubmit} />
       </div>
     </section>
   );
