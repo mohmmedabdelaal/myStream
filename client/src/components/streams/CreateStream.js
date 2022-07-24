@@ -5,6 +5,7 @@ import FormValues from './FormValues';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function CreateStream(props) {
+  console.log(props);
   const { user } = useAuth0();
   const userId = typeof user === 'undefined' ? 'default' : user.sub;
   const onSubmit = (formValues) => {

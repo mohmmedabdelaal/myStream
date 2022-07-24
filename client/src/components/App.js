@@ -11,7 +11,7 @@ const App = () => {
   return (
     <section>
       <Navbar />
-      <Routes history={history}>
+      <Routes>
         <Route path="/" exact element={<StreamList />} />
         <Route path="/streams/new" element={<CreateStream />} />
         <Route path="/streams/show" element={<ShowStream />} />

@@ -1,19 +1,22 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
-
+import { useParams, useLocation } from 'react-router-dom';
+import LoadingSpinner from '../UI/LoadingSpinner';
 import { fetchStream, updateStream } from '../../actions';
 
-let myId;
-
-function UpdateStream(props) {
+function UpdateStream({ stream }) {
   const { id } = useParams();
-  console.log(id);
-  myId = id;
-  useEffect(() => {
-    fetchStream();
-  }, []);
 
+  const location = useLocation();
+
+  useEffect(() => {
+    fetchStream(id);
+  }, [id]);
+
+  if (!stream) {
+    return <LoadingSpinner />;
+  }
+  console.log(stream);
   return (
     <section>
       <div className="section-center">
@@ -21,15 +24,19 @@ function UpdateStream(props) {
           <h2>Edit Stream</h2>
           <div className="underline"></div>
         </div>
+        <h1>{stream.title}</h1>
       </div>
     </section>
   );
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(myId);
+const mapStateToProps = (state) => {
+  // get id
+  const path = window.location.pathname.split('/');
+  const id = path[path.length - 1];
+
   return {
-    stream: state.streams[myId],
+    stream: state.streams[id],
   };
 };
 
