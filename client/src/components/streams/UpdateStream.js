@@ -28,7 +28,7 @@ function UpdateStream({ stream, updateStream }) {
           <h2>Edit Stream</h2>
           <div className="underline"></div>
         </div>
-        <FormValues onSubmit={onSubmit} />
+        <FormValues onSubmit={onSubmit} initialValues={stream} />
       </div>
     </section>
   );
