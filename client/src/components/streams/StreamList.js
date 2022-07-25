@@ -32,9 +32,9 @@ function StreamList({ fetchStreams, streams }) {
                     <i className="ui icon edit"></i>
                     Edit
                   </Link>
-                  <button className="del-btn">
+                  <Link to={`/streams/delete/${id}`} className="del-btn">
                     <i className="ui icon trash"></i> Delete
-                  </button>
+                  </Link>
                 </div>
               ) : null}
               <i className="large middle aligned icon camera" />
