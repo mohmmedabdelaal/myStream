@@ -1,12 +1,6 @@
 {
   "streams": [
     {
-      "title": "gust create stream with userId",
-      "description": "football",
-      "userId": "google-oauth2|106412140122217990210",
-      "id": 2
-    },
-    {
       "title": "FIFA 2",
       "description": "new release is coming as Soon as possiblefffs",
       "userId": "google-oauth2|116356641538491391893",

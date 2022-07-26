@@ -24,7 +24,7 @@ function DeleteStream(props) {
       </button>
       <Link to="/" className="ui button">
         Cancel
-      </Link>{' '}
+      </Link>
     </>
   );
   const renderContent = () => {
