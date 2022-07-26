@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
 import LoadingSpinner from '../UI/LoadingSpinner';
+import Card from '../UI/Card';
 
 function ShowStream(props) {
   const { id } = useParams();
@@ -23,8 +24,10 @@ function ShowStream(props) {
         <div className="underline"></div>
       </div>
       <div className="section-center">
-        <h1>{stream.title}</h1>
-        <p>{stream.description}</p>
+        <Card>
+          <h1>{stream.title}</h1>
+          <p>{stream.description}</p>
+        </Card>
       </div>
     </section>
   );
