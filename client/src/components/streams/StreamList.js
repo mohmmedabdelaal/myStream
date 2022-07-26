@@ -39,7 +39,9 @@ function StreamList({ fetchStreams, streams }) {
               ) : null}
               <i className="large middle aligned icon camera" />
               <div className="content">
-                <h3>{title}</h3>
+                <Link to={`/streams/${id}`}>
+                  <h3>{title}</h3>
+                </Link>
                 <div className="description">
                   <h4>{description}</h4>
                 </div>
