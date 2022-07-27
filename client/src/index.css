@@ -201,6 +201,7 @@ p {
   background: #f637ec;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 1rem;
 }
 
 .float-right {

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, createRef } from 'react';
+import flv from 'flv.js';
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
@@ -7,12 +8,30 @@ import Card from '../UI/Card';
 
 function ShowStream(props) {
   const { id } = useParams();
-  console.log(id);
+  const videoRef = createRef();
+  console.log(flv);
+
   const { stream, fetchStream } = props;
+
+  const buildPlayer = () => {
+    if (flvPlayer || !stream) {
+      return;
+    }
+    var flvPlayer = flv.createPlayer({
+      type: 'flv',
+      url: `http://localhost:8000/live/${id}.flv`,
+    });
+    flvPlayer.attachMediaElement(videoRef.current);
+    flvPlayer.load();
+  };
 
   useEffect(() => {
     fetchStream(id);
-  }, [id]);
+    buildPlayer();
+  }, []);
+
+  // useEffect(buildPlayer(), []);
+
   if (!stream) {
     return <LoadingSpinner />;
   }
@@ -24,6 +43,7 @@ function ShowStream(props) {
         <div className="underline"></div>
       </div>
       <div className="section-center">
+        <video ref={videoRef} style={{ width: '100%' }} controls />
         <Card>
           <h1>{stream.title}</h1>
           <p>{stream.description}</p>

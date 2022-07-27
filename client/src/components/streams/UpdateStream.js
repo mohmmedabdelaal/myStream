@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../UI/LoadingSpinner';
-import FormValues from './FormValues';
+import FormValues from './StreamForm';
 import { fetchStream, updateStream } from '../../actions';
 
 function UpdateStream({ stream, updateStream }) {

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { createStream } from '../../actions';
-import FormValues from './FormValues';
+import FormValues from './StreamForm';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function CreateStream(props) {
