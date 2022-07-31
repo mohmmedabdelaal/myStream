@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchStream } from '../../actions';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import Card from '../UI/Card';
+import { Helmet } from 'react-helmet-async';
 
 function ShowStream(props) {
   const { id } = useParams();
@@ -38,6 +39,9 @@ function ShowStream(props) {
 
   return (
     <section className="section">
+      <Helmet>
+        <title>Stream {props.stream.title} Details</title>
+      </Helmet>
       <div className="title">
         <h2>Stream Details</h2>
         <div className="underline"></div>

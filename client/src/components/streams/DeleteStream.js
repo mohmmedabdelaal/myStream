@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import Modal from '../UI/Modal';
 import { useNavigate, useParams, useLocation, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
+
 import { fetchStream, deleteStream } from '../../actions';
 
 function DeleteStream(props) {
@@ -35,6 +37,11 @@ function DeleteStream(props) {
   };
   return (
     <div>
+    <Helmet>
+      <title>
+        Delete {props.stream.title}
+      </title>
+    </Helmet>
       <Modal
         title="Delete this stream"
         content={renderContent()}

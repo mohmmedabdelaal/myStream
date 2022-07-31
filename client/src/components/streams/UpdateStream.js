@@ -5,6 +5,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import LoadingSpinner from '../UI/LoadingSpinner';
 import FormValues from './StreamForm';
 import { fetchStream, updateStream } from '../../actions';
+import { Helmet } from 'react-helmet-async';
 
 function UpdateStream({ stream, updateStream }) {
   const navigation = useNavigate();
@@ -26,6 +27,9 @@ function UpdateStream({ stream, updateStream }) {
 
   return (
     <section>
+      <Helmet>
+        <title>Update {stream.title} stream</title>
+      </Helmet>
       <div className="section-center">
         <div className="title">
           <h2>Edit Stream</h2>

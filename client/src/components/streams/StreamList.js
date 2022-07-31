@@ -4,6 +4,7 @@ import { fetchStreams } from '../../actions';
 import Card from '../UI/Card';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function StreamList({ fetchStreams, streams }) {
   const { user } = useAuth0();
@@ -17,6 +18,9 @@ function StreamList({ fetchStreams, streams }) {
 
   return (
     <section className="section">
+    <Helmet>
+      <title>Streams</title>
+    </Helmet>
       <div className="title">
         <h2>Streams</h2>
         <div className="underline"></div>
